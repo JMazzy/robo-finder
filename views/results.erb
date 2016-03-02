@@ -1,0 +1,46 @@
+<% if !!results['items'] %>
+
+  <% results['items'].each do |result| %>
+
+    <div class='mdl-grid'>
+      <div class='mdl-cell--3-col'></div>
+      <div class="mdl-card mdl-shadow--2dp mdl-cell--6-col">
+        <div class="mdl-card__media"><img src="<%= result['pagemap']['cse_image'][0]['src'] if result['pagemap']['cse_image'] %>" width="200" border="0"
+         alt="" style="padding:10px;">
+        </div>
+
+        <div class="mdl-card__title">
+          <h2 class="mdl-card__title-text"><%= result['title'] %></h2>
+        </div>
+
+        <div class="mdl-card__supporting-text">
+          <%= result['snippet'] %>
+        </div>
+
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<%= result['link'] %>">
+            Go to Listing
+          </a>
+        </div>
+
+        <div class="mdl-card__menu">
+          <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+            <i class="material-icons">share</i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+  <% end %>
+
+<% else %>
+
+  <div class='mdl-grid'>
+    <div class='mdl-cell--3-col'></div>
+    <div class="mdl-cell--6-col">
+      <h2>No Results Found!</h2>
+    </div>
+  </div>
+
+<% end %>
